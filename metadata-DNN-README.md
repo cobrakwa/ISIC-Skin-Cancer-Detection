@@ -1,70 +1,42 @@
 # Metadata DNN Model README
 
-This README outlines the workflow for training a deep neural network (DNN) on metadata for binary classification.
+This README provides a quick overview of training a DNN model on metadata for binary classification.
 
 ---
 
-## Workflow
+## Overview
 
-### **1. Data**
-
--   **Dataset**: Metadata loaded from `normalized_metadata.csv`.
--   **Splits**: Train (80%), validation (10%), test (10%).
--   **Features**: Numerical columns after dropping `isic_id` and `target`.
--   **Labels**: Encoded if not numeric.
+The DNN processes metadata features to perform binary classification. It includes two hidden layers with ReLU activation and dropout for regularization. The training framework tracks metrics like accuracy, ROC AUC, and pAUC to evaluate performance.
 
 ---
 
-### **2. Model**
+## Data
 
--   **Architecture**:
-    -   Input layer matching feature dimensions.
-    -   2 hidden layers (ReLU, Dropout).
-    -   Output layer with softmax activation.
--   **Dropout**: 0.5 for regularization.
-
----
-
-### **3. Hyperparameters**
-
--   **Batch Size**: 64
--   **Learning Rate**: 0.001
--   **Epochs**: 50
--   **Loss Function**: CrossEntropyLoss
--   **Optimizer**: Adam
+- **Dataset**: `normalized_metadata.csv`
+- **Splits**: Train (80%), validation (10%), test (10%)
+- **Features**: Numerical columns (excluding `isic_id` and `target`)
+- **Labels**: Encoded if not numeric
 
 ---
 
-### **4. Training**
+## Model Configurations
 
--   Tracks train/validation loss and accuracy.
--   Saves the best model as `best_model.pth`.
+The `saved_models` folder contains models saved during various training runs. The naming convention is as follows:
 
----
-
-### **5. Evaluation**
-
--   **Metrics**:
-    -   Accuracy
-    -   ROC AUC
-    -   Partial AUC (pAUC)
-    -   Classification Report
--   **Plots**:
-    -   ROC Curve
-    -   Train vs Validation Loss
-    -   Train vs Validation Accuracy
+- **`saved_models_1`, `saved_models_2`, etc.**: Represent different training iterations or configurations.
+- **`*_STAR` Suffix**: Indicates the best-performing model for a particular configuration. For example, `saved_models_1STAR` means the first training iteration yielded the best results.
 
 ---
 
-## Results and Files
+## Outputs
 
--   **Model**: Best-performing model saved in `saved_models/best_model.pth`.
--   **Plots**:
-    -   `roc_curve.png`: ROC curve and pAUC highlights.
-    -   `train_val_loss.png`: Training vs Validation Loss.
-    -   `train_val_accuracy.png`: Training vs Validation Accuracy.
--   **Parameters**: Stored in `model_params.txt`.
+- **Model**: Best-performing model (`best_model.pth`). Available on requests or uploaded to edim.
+- **Plots**:
+  - ROC Curve: `roc_curve.png`
+  - Training/Validation Loss: `train_val_loss.png`
+  - Training/Validation Accuracy: `train_val_accuracy.png`
+- **Parameters**: Saved in `model_params.txt` for reproducibility
 
 ---
 
-This DNN framework efficiently handles metadata for classification, providing insights through robust evaluation and visualizations.
+This README highlights the key details for training and evaluating the DNN model. For detailed workflows, refer to the training scripts in the tabular_model directory.
