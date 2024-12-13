@@ -1,92 +1,34 @@
 # ResNet (18 & 50 Variants) README
 
-This README provides a concise guide for training, validating, and testing ResNet-18 and ResNet-50 models for image classification tasks using PyTorch.
+This README provides a brief overview of training and evaluating ResNet-18 and ResNet-50 models for image classification.
 
 ---
 
-## Workflow Overview
+## Overview
 
-### **1. Imports**
-
-Key libraries include:
-
--   **PyTorch**: Model training and evaluation.
--   **Torchvision**: Pretrained ResNet models and dataset utilities.
--   **Matplotlib**: Visualizations.
--   **Scikit-learn**: Evaluation metrics (e.g., AUC, ROC curves).
+The ResNet directory follows a structure similar to the Conformer and DNN directories. It contains configurations for ResNet-18 and ResNet-50 models, with saved checkpoints and corresponding training information.
 
 ---
 
-### **2. Model Variants**
+## Directory Structure
 
--   **ResNet-18**: Lightweight model, suitable for smaller datasets or limited resources.
--   **ResNet-50**: Deeper architecture, better for larger datasets and more complex tasks.
+The `saved_models` folder contains models saved during training. Naming conventions are as follows:
 
-Each model is fine-tuned to update only:
-
-1. The **fully connected layer (fc)**.
-2. The **last residual block** (`layer4`) for better adaptation.
+- **`saved_models_1`, `saved_models_2`, etc.**: Represent different training iterations or configurations.
+- **`*_STAR` Suffix**: Indicates the best-performing model for a configuration. For example, `saved_models_1STAR` signifies the best model from the first iteration.
+- **`model_params.txt`**: Located within each configuration folder, it specifies the hyperparameters and architecture of the model.
 
 ---
 
-### **3. Data Processing**
+## Outputs
 
--   **Transforms**: Resize, normalization, and augmentations for robustness.
--   **Splits**: Stratified train, validation, and test sets to ensure balanced class distributions.
--   **Augmented Dataset**: Combines augmented and original images for training.
-
----
-
-### **4. Training**
-
--   **Loss Function**: `CrossEntropyLoss`.
--   **Optimizer**: Adam with a learning rate of `5e-6`.
--   **Epochs**: 50.
--   **Batch Size**: 32.
--   **Best Model**: Automatically saved based on validation loss.
+- **Model Checkpoints**: Best-performing models saved as `best_model.pth` in `saved_models`.
+- **Plots**:
+  - ROC Curve: `roc_curve_with_pauc.png`
+  - Training vs Validation Loss: `training_vs_validation_loss.png`
+  - Training vs Validation Accuracy: `training_vs_validation_accuracy.png`
+- **Parameters**: Details saved in `model_params.txt`.
 
 ---
 
-### **5. Evaluation**
-
--   **Metrics**:
-    -   Accuracy
-    -   AUC
-    -   Partial AUC (pAUC)
-    -   Classification Report
--   **Visualizations**:
-    -   Training vs Validation Loss
-    -   Training vs Validation Accuracy
-    -   ROC Curve with pAUC highlights
-
----
-
-### **6. Model Saving**
-
--   **Best Model**: Saved as `best_model.pth`.
--   **Plots**: Saved as `.png` files in `saved_models/`.
--   **Parameters**: Stored in `model_params.txt` for reproducibility.
-
----
-
-## How to Use
-
-1. **Dataset Setup**: Place images in the `../data/balanced_data` directory.
-2. **Select Model**: Choose ResNet-18 or ResNet-50 and load pretrained weights.
-3. **Train**: Run the training script to fine-tune the model.
-4. **Evaluate**: Use the best saved model for testing and generate metrics/plots.
-5. **Review Results**: Check saved plots, classification reports, and logs in `saved_models/`.
-
----
-
-## Key Files
-
--   **`best_model.pth`**: Best-performing model checkpoint.
--   **`roc_curve_with_pauc.png`**: ROC curve highlighting pAUC.
--   **`training_vs_validation_loss.png`**: Train vs Validation loss.
--   **`training_vs_validation_accuracy.png`**: Train vs Validation accuracy.
--   **`model_params.txt`**: Hyperparameters and architecture.
-
----
-
-This guide helps you efficiently use ResNet-18 or ResNet-50 for your classification tasks with pretrained weights and fine-tuning strategies.
+This README highlights the folder structure and file organization for ResNet models, aligning with the conventions used in the Conformer and DNN directories. Details of training are found in the script and the report.
