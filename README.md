@@ -85,8 +85,11 @@ This repository contains a collection of pipelines, models, and resources for so
 
 ### **8. Additional Notebooks**
 
+In the gated_cross_attn directory:
 - **`output_fusion.ipynb`**: Uses an ensemble of pretrained image classifiers and XGBoost models to generate predictions on the test set.
 - **`train_fusion.ipynb`**: Performs 5-fold cross-validation to produce average pAUC scores.
+
+The directory also contains a readme for more information.
 
 ---
 
