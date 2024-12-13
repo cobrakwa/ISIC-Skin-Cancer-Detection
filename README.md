@@ -90,23 +90,22 @@ This repository contains a collection of pipelines, models, and resources for so
 
 ---
 
-## Usage Instructions
+## Dataset Requirements
 
-1. **Setup**: Prepare the environment and install necessary dependencies.
-2. **Dataset**: The project requires a specific balanced dataset for exact reproducibility. This dataset can be obtained on request or through the edimension platform.
-3. **Model Training and Evaluation**: Follow the respective READMEs for specific workflows related to Conformer, DNN, ResNet, CNN, ViT, or Fusion models.
-4. **Fusion Ensemble**: Use `output_fusion.ipynb` for generating predictions on the test set.
+To ensure exact reproducibility, the project requires a balanced dataset in the following structure:
+
+- **Data Files**:
+  - `normalized_metadata.csv`: Preprocessed metadata.
+  - `normalization_params.json`: Normalization parameters for metadata features.
+  - Image files organized by labels (`1/` and `0/` folders).
+
+This dataset can be obtained on request or through the edimension platform. Ensure all data files are placed in the `../data/balanced_data` directory.
 
 ---
 
-## Repository Organization
+## Dependency Requirements
 
-- **`data-README.md`**: Data preprocessing and metadata explanations.
-- **`conformer-README.md`**: Conformer model configurations and training details.
-- **`metadata-DNN-README.md`**: Metadata-based DNN instructions.
-- **`resnet-README.md`**: ResNet-based model configurations.
-- **`simpleConv-README.md`**: Lightweight CNN training and evaluation.
-- **`vit-README.md`**: Vision Transformer configurations and fine-tuning.
-- **`fusion-README.md`**: Fusion of multiple modalities and pretrained models.
-- **`output_fusion.ipynb`**: Ensemble-based test set predictions.
-- **`train_fusion.ipynb`**: Fusion model cross-validation and training.
+Install the required Python libraries before running the code:
+
+```bash
+pip install torch torchvision matplotlib numpy scikit-learn scipy pandas timm
