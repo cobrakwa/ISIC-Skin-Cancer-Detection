@@ -112,3 +112,16 @@ Install the required Python libraries before running the code:
 
 ```bash
 pip install torch torchvision matplotlib numpy scikit-learn scipy pandas timm
+```
+
+## Repository Organization
+
+In the readme directory:
+- **data-README.md**: Data preprocessing and metadata explanations.
+- **conformer-README.md**: Conformer model configurations and training details.
+- **metadata-DNN-README.md**: Metadata-based DNN instructions.
+- **resnet-README.md**: ResNet-based model configurations.
+- **simpleConv-README.md**: Lightweight CNN training and evaluation.
+- **vit-README.md**: Vision Transformer configurations and fine-tuning.
+- **fusion-README.md**: Fusion of multiple modalities and pretrained models.
+
