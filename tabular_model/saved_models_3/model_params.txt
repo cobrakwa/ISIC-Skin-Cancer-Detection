@@ -1,0 +1,33 @@
+Model Architecture:
+FeedforwardNN(
+  (fc): Sequential(
+    (0): Linear(in_features=43, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.5, inplace=False)
+    (3): Linear(in_features=256, out_features=256, bias=True)
+    (4): ReLU()
+    (5): Linear(in_features=256, out_features=2, bias=True)
+  )
+)
+
+Hyperparameters:
+Batch Size: 64
+Learning Rate: 0.001
+Number of Epochs: 50
+Dropout: 0.5
+Optimizer: Adam
+Loss Function: CrossEntropyLoss
+
+Training Results:
+Final Train Loss: 0.2358
+Final Train Accuracy: 0.9143
+
+Validation Results:
+Best Validation Loss: 0.4442
+Best Validation Accuracy: 0.8533
+
+Test Results:
+Test Loss: 0.3759
+Test Accuracy: 0.8701
+Partial AUC (pAUC): 0.1264
+ROC AUC: 0.9222
