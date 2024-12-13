@@ -85,8 +85,11 @@ This repository contains a collection of pipelines, models, and resources for so
 
 ### **8. Additional Notebooks**
 
+In the gated_cross_attn directory:
 - **`output_fusion.ipynb`**: Uses an ensemble of pretrained image classifiers and XGBoost models to generate predictions on the test set.
 - **`train_fusion.ipynb`**: Performs 5-fold cross-validation to produce average pAUC scores.
+
+The directory also contains a readme for more information.
 
 ---
 
@@ -109,3 +112,16 @@ Install the required Python libraries before running the code:
 
 ```bash
 pip install torch torchvision matplotlib numpy scikit-learn scipy pandas timm
+```
+
+## Repository Organization
+
+In the readme directory:
+- **data-README.md**: Data preprocessing and metadata explanations.
+- **conformer-README.md**: Conformer model configurations and training details.
+- **metadata-DNN-README.md**: Metadata-based DNN instructions.
+- **resnet-README.md**: ResNet-based model configurations.
+- **simpleConv-README.md**: Lightweight CNN training and evaluation.
+- **vit-README.md**: Vision Transformer configurations and fine-tuning.
+- **fusion-README.md**: Fusion of multiple modalities and pretrained models.
+
