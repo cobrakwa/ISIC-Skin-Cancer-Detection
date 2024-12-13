@@ -1,57 +1,34 @@
 # Simple Convolutional Neural Network (CNN) README
 
-This README provides a quick overview of a basic CNN pipeline for image classification.
+This README provides a brief overview of the Simple CNN pipeline for image classification.
 
 ---
 
-## Workflow
+## Overview
 
-### **1. Data**
-
--   **Dataset**: Located in `../data/balanced_data`.
--   **Augmentations**: Includes random flips, rotations, and crops for training.
--   **Splits**: Train, validation, and test sets.
+The Simple CNN directory follows a structure similar to the Conformer, DNN, and ResNet directories. It includes saved models, metrics, and configurations for lightweight CNN-based image classification.
 
 ---
 
-### **2. Model**
+## Directory Structure
 
--   **Architecture**:
-    -   3 convolutional layers with batch normalization, ReLU activation, and dropout.
-    -   Global average pooling followed by a fully connected layer for classification.
+The `saved_models` folder contains models saved during training. Naming conventions are as follows:
 
----
-
-### **3. Hyperparameters**
-
--   **Batch Size**: 32
--   **Learning Rate**: `1e-4`
--   **Epochs**: 30
--   **Loss Function**: CrossEntropyLoss
--   **Optimizer**: Adam
+- **`saved_models_1`, `saved_models_2`, etc.**: Represent different training iterations or configurations.
+- **`*_STAR` Suffix**: Indicates the best-performing model for a configuration (e.g., `saved_models_1STAR`).
+- **`model_params.txt`**: Located within each configuration folder, it specifies the architecture and hyperparameters for the model.
 
 ---
 
-### **4. Training**
+## Outputs
 
--   Tracks training and validation loss/accuracy.
--   Saves the best model to `saved_models/best_model.pth`.
-
----
-
-### **5. Evaluation**
-
--   **Metrics**: Accuracy, AUC, pAUC, classification report.
--   **Visualizations**: Training/validation loss, accuracy, and ROC curve.
+- **Model Checkpoints**: Best-performing models saved as `best_model.pth` in `saved_models`.
+- **Plots**:
+  - ROC Curve: `roc_curve.png`
+  - Training vs Validation Loss: `train_val_loss.png`
+  - Training vs Validation Accuracy: `train_val_accuracy.png`
+- **Parameters**: Details saved in `model_params.txt`.
 
 ---
 
-## Results and Files
-
--   **Model**: Best model saved as `best_model.pth`.
--   **Plots**: Metrics and ROC curve saved in `saved_models/`.
--   **Parameters**: Detailed in `model_params.txt`.
-
----
-
-This project implements a lightweight, customizable CNN suitable for binary or multiclass image classification tasks.
+This README highlights the folder structure and file organization for the Simple CNN, following conventions established in the Conformer, DNN, and ResNet directories. Training details are found in the script and in the report.
